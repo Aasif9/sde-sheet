@@ -18,7 +18,7 @@ int longestConsecutive(vector<int>& nums) {
 
         if (set.find(previousConsecutiveElement) == set.end()) {
 
-            // 'arr[i]' is the first value of consecutive sequence.
+        
             int j = nums[i];
             
             while (set.find(j) != set.end()) {
