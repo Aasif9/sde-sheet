@@ -1,0 +1,18 @@
+ vector<vector<int>> subsetsWithDup(vector<int>& nums) {
+        vector<vector<int>> res;
+        vector<int> temp;
+        sort(nums.begin(), nums.end());
+        backtrack(res, temp, 0, nums.size(), nums);
+        return res;
+    }
+private:
+    void backtrack(vector<vector<int>>& res, vector<int>& temp, int start, int end, vector<int>& nums){
+        res.push_back(temp);
+        for(int i=start; i<end; i++){
+            if(i==start || nums[i] != nums[i-1]){
+                temp.push_back(nums[i]);
+                backtrack(res, temp, i+1, end, nums);
+                temp.pop_back();
+            }
+        }
+    }
