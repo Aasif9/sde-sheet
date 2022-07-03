@@ -1,0 +1,18 @@
+  int lastIdx = 0, cur = 1, way = 0;
+        // get first direction
+        while(lastIdx+1 < nums.size() && nums[lastIdx] == nums[lastIdx+1])
+            ++lastIdx;
+        if(lastIdx+1 < nums.size()) {
+            way = (nums[lastIdx+1] - nums[lastIdx]);
+            way = way / abs(way);
+        }
+        
+        // greedy
+        for(int i = lastIdx+1; i < nums.size(); ++i){
+            int diff = (nums[i] - nums[i-1]) * way;
+            if(diff > 0) {
+                ++cur;
+                way *= -1;    
+            }
+        }
+        return cur;
