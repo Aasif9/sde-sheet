@@ -20,7 +20,8 @@ bool check(int mid,vector<int>& weights,int days){
         for(auto i:weights){
             sum+=i;
         }
-        int i=*max_element(weights.begin(),weights.end()),j=sum;
+        int i=*max_element(weights.begin(),weights.end());
+        int j=sum;
         while(i<=j){
             int mid = i + (j-i)/2;
             if(check(mid,weights,days)){
